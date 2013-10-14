@@ -1,0 +1,84 @@
+mixin yearguide(year)
+  - var xname = '_' + year
+  .thumbnail 
+    img(data-src="holder.js/300x200", alt="...")
+    .caption.text-center 
+      h2 #{ year }
+      != partial(xname)
+      a(class="btn btn-info btn-lg", href="/#{ year }") #{ year }
+
+mixin yearRow(years)
+  
+    - each year in years
+      .col-sm-6.col-md-3
+        .thumbnail
+          a(href="/lg/#{ year }_detail")
+            img.img-responsive(data-src="holder.js/300x200", alt="...")
+          //.caption.text-center      
+          h2 
+            a(href="/lg/ydetail/#{ year }_detail") #{ year }
+          - var xname = '_' + year
+          != partial(xname)
+          // a(class="btn btn-info btn-lg", href="/lg/#{ year }_detail") #{ year }
+
+
+.container 
+  .row
+    .col-lg-12
+    h1.page-header Live Guides 
+      small 30 Seconds To Mars
+    
+    
+  .row
+    .col-sm-6.col-md-3
+      .thumbnail 
+        a(href="/2000")
+          //img.img-responsive(src="http://placehold.it/300x200")
+          //img(class="img-responsive", src="http://placehold.it/300x200")
+          img.img-responsive(data-src="holder.js/300x200", alt="...")
+        //.caption.text-center      
+        h3 
+          a(href="/2000") 2000
+        h3 #{ public.lg.data.lg.txt }
+        
+        //
+          for lgs, slug in public.lg.data
+            p #{ lgs.txt }
+          
+        
+        
+        // p public.lg.data.lg.2000txt
+        // a(class="btn btn-info btn-lg", href="/2000") 2000
+          
+    .col-sm-6.col-md-3
+      +yearguide("2001")
+    //
+        .thumbnail
+          img(data-src="holder.js/300x200", alt="...")
+          .caption.text-center      
+            h2 2001
+            p lorem ipsum
+            a(class="btn btn-primary", href="/2001") 2001
+          
+    .col-sm-6.col-md-3
+      .thumbnail 
+        img(data-src="holder.js/300x200", alt="...")
+        .caption.text-center      
+          h2 2002
+          p lorem ipsum
+          a(class="btn btn-primary", href="/2002") 2002
+          
+    .col-sm-6.col-md-3
+      .thumbnail 
+        img(data-src="holder.js/300x200", alt="...")
+        .caption.text-center      
+          h2 2003
+          p lorem ipsum
+          a(class="btn btn-primary", href="/2003") 2003
+          
+   .row
+     +yearRow(['2004', '2005', '2006', '2007'])
+   .row
+     +yearRow(['2008', '2009', '2010', '2011'])
+    .row
+      +yearRow(['2012', '2013', '2014', '2015'])
