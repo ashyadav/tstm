@@ -1,14 +1,14 @@
 mixin yearDetail(concert, but_on)
   //- but_on triggers button being on or off
-  - var c_show = 'public.lg.ydetail.data.' + concert + '.show_t'
+  - var c_show = 'public.lg.ydetail._data.' + concert + '.show_t'
   - var c_loc = concert + '.loc'
   //- var c_txt = stub.desc
   .col-md-7.col
-    img.img-responsive(data-src="holder.js/750x350", alt="...")
+    img.img-responsive(data-src="/public/_assets/js/holder.js/750x350", alt="...")
     //- Whitespace to add separation between rows
     p
   .col-md-5 
-    each val, slug in public.lg.ydetail.data
+    each val, slug in public.lg.ydetail._data
       
       if ( slug == concert )
         //h3 Show Details #{ slug }
@@ -19,7 +19,7 @@ mixin yearDetail(concert, but_on)
         p #{ val.info }
         //!= partial(desc_file)
         // != partial("_s_2004_1_txt")
-        //p #{ public.lg.ydetail.data.s_2004_1.loc }
+        //p #{ public.lg.ydetail._data.s_2004_1.loc }
         case but_on
           when 1: a(class="btn btn-info", href="/lg/detail/#{ slug }_det") View Concert
           default: a(class="btn btn-info", href="/lg/detail/#{ slug }_det", disabled='disabled') View Concert
